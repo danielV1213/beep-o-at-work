@@ -15,6 +15,7 @@ TagManager:
   - SamplesInfoPanel
   - AnchorUI
   - Canva
+  - Bombillo
   layers:
   - Default
   - TransparentFX
