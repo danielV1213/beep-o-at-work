@@ -25,8 +25,8 @@ public class Luces : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            // Agrega aquí el código que deseas que se ejecute cuando se active la colisión
-            Debug.Log("Se ha activado la colisiónNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
+            // Agrega aquï¿½ el cï¿½digo que deseas que se ejecute cuando se active la colisiï¿½n
+            Debug.Log("Se ha activado la colisiï¿½nNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
 
 
             GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
@@ -40,6 +40,20 @@ public class Luces : MonoBehaviour
             }
 
         }
+    }
+
+    public void lightsGreen(){
+
+        GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
+
+            // Cambia el color de la luz de todos los objetos "bombillo" a rojo
+            foreach (GameObject bombillo in bombillos)
+            {
+                Light pointLight = bombillo.GetComponentInChildren<Light>();
+                pointLight.color= Color.green;
+
+            }
+
     }
 
 }
