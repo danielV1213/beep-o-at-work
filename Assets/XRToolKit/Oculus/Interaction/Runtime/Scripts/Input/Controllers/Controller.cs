@@ -27,6 +27,8 @@ namespace Oculus.Interaction.Input
         DataModifier<ControllerDataAsset>,
         IController
     {
+
+
         public Handedness Handedness => GetData().Config.Handedness;
 
         public bool IsConnected
