@@ -7,6 +7,8 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Luces : MonoBehaviour
 {
     // Start is called before the first frame update
+ 
+    public CheckCode checkCode;
     void Start()
     {
         Debug.Log("Si carga");
@@ -26,7 +28,7 @@ public class Luces : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Agrega aquí el código que deseas que se ejecute cuando se active la colisión
-            Debug.Log("Se ha activado la colisiónNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
+            //Debug.Log("Se ha activado la colisiónNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
 
 
             GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
@@ -41,5 +43,24 @@ public class Luces : MonoBehaviour
 
         }
     }
+
+    public void lightsGreen()
+    {
+        if (checkCode.correctAnswer)
+        {
+            GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
+
+            // Cambia el color de la luz de todos los objetos "bombillo" a rojo
+            foreach (GameObject bombillo in bombillos)
+            {
+                Light pointLight = bombillo.GetComponentInChildren<Light>();
+                pointLight.color = Color.green;
+
+            }
+        }
+        
+
+    }
+
 
 }
