@@ -7,39 +7,47 @@ public class CheckCode : MonoBehaviour
     // Start is called before the first frame update
 
     public bool correctAnswer = false;
+    public bool buttonDeploy = false;
+    public GameObject button;
+
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        button.SetActive(buttonDeploy);
     }
 
-    //public void OnTriggerStay(Collider other)
-    //{
-    //    Debug.Log(other.tag);
-    //}
-
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("Canva"))
-        {
-            Debug.Log(other.gameObject.name + "STAYYYYYYYY");
 
-            if (other.gameObject.name == "IV_IF_CodeCard_1")
-            {
-                correctAnswer = true;
-                Debug.Log("CORRECTOOOOOOOOOOOOO   " + other.gameObject.name);
-            }
-            else
-            {
-                correctAnswer = false;
-                Debug.Log("HUEVAAAAAAAAAAAAAAAAA");
-            }
+        if(other.gameObject.CompareTag("correctCard"))
+        {
+            correctAnswer = true;
+            Debug.Log(other.gameObject.tag);
+            buttonDeploy = true;
         }
-     
+        else
+        {
+            Debug.Log(other.gameObject.tag);
+            correctAnswer = false;
+            buttonDeploy = true;
+        }
+
     }
+
+    
+    private void OnTriggerExit(Collider other)
+    {
+        buttonDeploy = false;
+    }
+
+    public void CheckAnswer()
+    {
+        Debug.Log(correctAnswer);
+    }
+
 }

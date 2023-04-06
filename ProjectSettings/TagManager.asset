@@ -16,6 +16,8 @@ TagManager:
   - AnchorUI
   - Canva
   - Bombillo
+  - correctCard
+  - incorrectCard
   layers:
   - Default
   - TransparentFX
