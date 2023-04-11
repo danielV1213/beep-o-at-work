@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PositionsAnswers : MonoBehaviour
+public class SpawnAnswerV : MonoBehaviour
 {
     public Transform[] spawnPositions;
-    public List<GameObject> instantiatedObjects = new List<GameObject>();
+    public List<GameObject> instantiatedObjects = new();
 
     public void InstantiateCorrectObject(GameObject correctObject, int positionIndex)
     {

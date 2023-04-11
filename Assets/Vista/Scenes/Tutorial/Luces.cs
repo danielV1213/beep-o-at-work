@@ -8,7 +8,7 @@ public class Luces : MonoBehaviour
 {
     // Start is called before the first frame update
  
-    public CheckCode checkCode;
+    public CheckAnswerM checkCode;
     void Start()
     {
         Debug.Log("Si carga");
@@ -46,7 +46,7 @@ public class Luces : MonoBehaviour
 
     public void lightsGreen()
     {
-        if (checkCode.correctAnswer)
+        if (checkCode.CorrectAnswer)
         {
             GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
 
