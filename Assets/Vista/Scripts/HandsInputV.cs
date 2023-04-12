@@ -8,6 +8,8 @@ public class HandsInputV : MonoBehaviour
     public GameObject holoMap;
     public GameObject laserLeft;
     public GameObject laserRight;
+    public List<GameObject> listInterfaces;
+
 
     public void UpdateHoloMap(bool state)
     {
@@ -23,4 +25,14 @@ public class HandsInputV : MonoBehaviour
     {
         laserRight.SetActive(state);
     }
+
+    public void SkipTutorial()
+    {
+        for(int i = 0; i < listInterfaces.Count; i++)
+        {
+            listInterfaces[i].SetActive(false);
+        }
+    }
+
+
 }

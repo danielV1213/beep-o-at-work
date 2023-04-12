@@ -10,7 +10,9 @@ public class HandsInputC : MonoBehaviour
 {
     private HandsInputM inputModel;
     private HandsInputV inputView;
+    public GameObject repairButton;
 
+    public int contPressButtonTime = 0;
     void Start()
     {
         inputModel = new();
@@ -37,6 +39,34 @@ public class HandsInputC : MonoBehaviour
         {
             inputModel.LaserRightState = !inputModel.LaserRightState;
             inputView.UpdateLaserRight(inputModel.LaserRightState);
+        }
+
+
+        if (contPressButtonTime >= 100)
+        {
+            inputModel.TutoOMitir = true;
+
+            inputView.SkipTutorial();
+            repairButton.SetActive(true);
+
+        }
+
+    }
+
+
+
+    private void FixedUpdate()
+    {
+        if (!inputModel.TutoOMitir)
+        {
+            if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Right, UxrInputButtons.Button1))
+            {
+                contPressButtonTime++;
+            }
+            if (UxrAvatar.LocalAvatarInput.GetButtonsPressUp(UxrHandSide.Right, UxrInputButtons.Button1))
+            {
+                contPressButtonTime = 0;
+            }
         }
     }
 }
