@@ -16,6 +16,9 @@ public class InterfaceC : MonoBehaviour
 
     public GameObject interfaceExercise;
     public GameObject interfaceGrabCode;
+    public GameObject timer;
+
+
 
     void Start()
     {
@@ -75,5 +78,11 @@ public class InterfaceC : MonoBehaviour
 
     }
 
+    public void timerStart()
+    {
+
+        timer.SetActive(true);
+
+    }
 
 }

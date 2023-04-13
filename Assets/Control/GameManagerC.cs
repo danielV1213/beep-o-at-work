@@ -5,12 +5,13 @@ using UnityEngine;
 public class GameManagerC : MonoBehaviour
 {
 
-    public float time;
+    public float timeUpdate;
+    public float lastTime;
     public void timeSinceStart()
     {
-        time = Time.realtimeSinceStartup;
-        int minutos = Mathf.FloorToInt(time / 60f);
-        int segundos = Mathf.FloorToInt(time % 60f);
+      
+        int minutos = Mathf.FloorToInt(lastTime / 60f);
+        int segundos = Mathf.FloorToInt(lastTime % 60f);
 
         Debug.Log("Tiempo: " + minutos + " minutos " + segundos + " segundos");
 
@@ -18,11 +19,20 @@ public class GameManagerC : MonoBehaviour
 
     private void Update()
     {
-        time = Time.realtimeSinceStartup;
+        timeUpdate = Time.realtimeSinceStartup;
 
-        if (time >= 1800)
+        if (timeUpdate >= 1800)
         {
+            lastTime = timeUpdate;
+            timeSinceStart();
 
+            Debug.Log("ALERTA, LLEVAS MUCHO TIEMPO JUGANDO");
+        }
+
+        if (timeUpdate >= 20)
+        {
+            lastTime = timeUpdate;
+            timeSinceStart();
         }
     }
 
