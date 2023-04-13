@@ -18,6 +18,7 @@ public class CheckAnswerV : MonoBehaviour
     public Luces lights;
 
 
+
     public void UpdateView(bool buttonDeploy)
     {
         Button.SetActive(buttonDeploy);
@@ -44,5 +45,7 @@ public class CheckAnswerV : MonoBehaviour
         updateIFTuto.SetActive(false);
 
     }
+
+ 
 
 }

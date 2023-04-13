@@ -5,6 +5,7 @@ using UltimateXR.Avatar;
 using UltimateXR.Core;
 using UltimateXR.Devices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandsInputC : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class HandsInputC : MonoBehaviour
 
     public Luces lights;
     public int contPressButtonTime = 0;
+
+
+    public bool stateMenu = false;
     void Start()
     {
         inputModel = new();
@@ -39,6 +43,16 @@ public class HandsInputC : MonoBehaviour
         {
             inputModel.LaserRightState = !inputModel.LaserRightState;
             inputView.UpdateLaserRight(inputModel.LaserRightState);
+        }
+
+        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Menu))
+        {
+            if (SceneManager.GetActiveScene().name != "Menu")
+            {
+                stateMenu = !stateMenu;
+                inputView.updateMenu(stateMenu);
+            }
+            
         }
 
 

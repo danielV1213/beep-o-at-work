@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UltimateXR.Examples.FullScene.Doors;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class HandsInputV : MonoBehaviour
 {
 
@@ -15,6 +15,8 @@ public class HandsInputV : MonoBehaviour
 
     public GameObject automaticDoorObject;
     AutomaticDoor automaticDoorScript;
+
+    public GameObject menuInterface;
 
     public void UpdateHoloMap(bool state)
     {
@@ -47,4 +49,9 @@ public class HandsInputV : MonoBehaviour
     }
 
 
+    public void updateMenu(bool state)
+    {
+            menuInterface.SetActive(state);
+      
+    }
 }
