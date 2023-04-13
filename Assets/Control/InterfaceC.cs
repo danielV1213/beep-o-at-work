@@ -8,6 +8,7 @@ public class InterfaceC : MonoBehaviour
     public List<GameObject> listUI;
     public int contList = 0;
     public int contListPrev = 0;
+
     public GameObject automaticDoorObject;
     AutomaticDoor automaticDoorScript;
 
@@ -68,12 +69,8 @@ public class InterfaceC : MonoBehaviour
     public void StartExercise()
     {
         interfaceExercise.SetActive(true);
-    }
-
-
-
-    public void changeLights()
-    {
 
     }
+
+
 }

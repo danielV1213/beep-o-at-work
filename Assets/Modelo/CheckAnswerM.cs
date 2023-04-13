@@ -7,7 +7,7 @@ public class CheckAnswerM : MonoBehaviour
     public bool CorrectAnswer;
     public void CheckAnswer()
     {
-        Debug.Log(CorrectAnswer);
+        Debug.Log("MODEL:" + CorrectAnswer);
     }
 
 }

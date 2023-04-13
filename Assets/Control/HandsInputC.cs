@@ -10,8 +10,8 @@ public class HandsInputC : MonoBehaviour
 {
     private HandsInputM inputModel;
     private HandsInputV inputView;
-    public GameObject repairButton;
 
+    public Luces lights;
     public int contPressButtonTime = 0;
     void Start()
     {
@@ -47,7 +47,7 @@ public class HandsInputC : MonoBehaviour
             inputModel.TutoOMitir = true;
 
             inputView.SkipTutorial();
-            repairButton.SetActive(true);
+            lights.lightsRed();
 
         }
 

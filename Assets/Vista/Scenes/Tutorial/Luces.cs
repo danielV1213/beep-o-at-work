@@ -8,57 +8,59 @@ public class Luces : MonoBehaviour
 {
     // Start is called before the first frame update
  
-    public CheckAnswerM checkCode;
-    void Start()
-    {
-        Debug.Log("Si carga");
+    public CheckAnswerC checkC;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Colosiona" + other.gameObject);
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Agrega aquí el código que deseas que se ejecute cuando se active la colisión
-            //Debug.Log("Se ha activado la colisiónNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
+    public GameObject lightsGreenObj;
+    //public Material materialLight;
 
 
-            GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log("Colosiona" + other.gameObject);
 
-            // Cambia el color de la luz de todos los objetos "bombillo" a rojo
-            foreach (GameObject bombillo in bombillos)
-            {
-                Light pointLight = bombillo.GetComponentInChildren<Light>();
-                pointLight.color= Color.red;
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        // Agrega aquí el código que deseas que se ejecute cuando se active la colisión
+    //        //Debug.Log("Se ha activado la colisiónNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
 
-            }
 
-        }
-    }
+    //        GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
+
+    //        // Cambia el color de la luz de todos los objetos "bombillo" a rojo
+    //        foreach (GameObject bombillo in bombillos)
+    //        {
+    //            Light pointLight = bombillo.GetComponentInChildren<Light>();
+    //            pointLight.color= Color.red;
+
+    //        }
+
+    //    }
+    //}
 
     public void lightsGreen()
     {
-        if (checkCode.CorrectAnswer)
-        {
+    
+            lightsGreenObj.SetActive(true);
+            Debug.Log("ANSWER CORRECT SAPA");
+
+            this.gameObject.SetActive(false);
+
+       
+    }
+    public void lightsRed()
+    {
+      
             GameObject[] bombillos = GameObject.FindGameObjectsWithTag("Bombillo");
 
             // Cambia el color de la luz de todos los objetos "bombillo" a rojo
             foreach (GameObject bombillo in bombillos)
             {
                 Light pointLight = bombillo.GetComponentInChildren<Light>();
-                pointLight.color = Color.green;
+                pointLight.color = Color.red;
 
             }
-        }
-        
+
+        //materialLight.color = Color.red;
 
     }
 

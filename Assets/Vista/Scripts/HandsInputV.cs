@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UltimateXR.Examples.FullScene.Doors;
 using UnityEngine;
 
 public class HandsInputV : MonoBehaviour
@@ -10,6 +11,10 @@ public class HandsInputV : MonoBehaviour
     public GameObject laserRight;
     public List<GameObject> listInterfaces;
 
+    public GameObject repairButton;
+
+    public GameObject automaticDoorObject;
+    AutomaticDoor automaticDoorScript;
 
     public void UpdateHoloMap(bool state)
     {
@@ -32,6 +37,13 @@ public class HandsInputV : MonoBehaviour
         {
             listInterfaces[i].SetActive(false);
         }
+
+        automaticDoorScript = automaticDoorObject.GetComponent<AutomaticDoor>();
+
+        automaticDoorScript.enabled = true;
+
+        repairButton.SetActive(true);
+       
     }
 
 
