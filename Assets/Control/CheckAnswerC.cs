@@ -7,10 +7,10 @@ public class CheckAnswerC : MonoBehaviour
     public CheckAnswerM checkAnswerM;
     private CheckAnswerV checkAnswerV;
 
-    public GameObject interfaceIncorrect;
-    public GameObject mainCard;
+    
 
-    public Luces lights;
+
+    public bool triggerStay = false;
 
     private void Start()
     {
@@ -34,8 +34,19 @@ public class CheckAnswerC : MonoBehaviour
             checkAnswerM.CorrectAnswer = false;
             checkAnswerV.UpdateView(true);
         }
+
+        triggerStay = true;
+
     }
 
+    private void Update()
+    {
+        if (triggerStay)
+        {
+            checkAnswerV.updateInterfaceGrabTuto();
+        }
+       
+    }
 
     public void OnTriggerExit(Collider other)
     {
@@ -44,16 +55,16 @@ public class CheckAnswerC : MonoBehaviour
 
     public void OnCheckAnswerButtonClicked()
     {
-        //checkAnswerM.CheckAnswer();
+        checkAnswerM.CheckAnswer();
         if (checkAnswerM.CorrectAnswer)
         {
-            lights.lightsGreen();
+            checkAnswerV.correcAnswer();
+            
         }
         else
         {
-            interfaceIncorrect.SetActive(true);
-            mainCard.SetActive(false);
-
+            checkAnswerV.incorrectAnswer();
+       
         }
       
 

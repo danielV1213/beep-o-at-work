@@ -15,7 +15,8 @@ public class InterfaceC : MonoBehaviour
     public GameObject repairButtonObj;
 
     public GameObject interfaceExercise;
-    
+    public GameObject interfaceGrabCode;
+
     void Start()
     {
         listUI[0].SetActive(true);
@@ -69,6 +70,8 @@ public class InterfaceC : MonoBehaviour
     public void StartExercise()
     {
         interfaceExercise.SetActive(true);
+        interfaceGrabCode.SetActive(true);
+        
 
     }
 

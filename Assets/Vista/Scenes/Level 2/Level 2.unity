@@ -491,7 +491,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eff3b93dea656c948830b7f9054dbcb1, type: 2}
+  - {fileID: 2100000, guid: 095b9ec1b4e20a843ad35fd5842f88ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1298,7 +1298,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eff3b93dea656c948830b7f9054dbcb1, type: 2}
+  - {fileID: 2100000, guid: 095b9ec1b4e20a843ad35fd5842f88ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1395,7 +1395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eff3b93dea656c948830b7f9054dbcb1, type: 2}
+  - {fileID: 2100000, guid: 095b9ec1b4e20a843ad35fd5842f88ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1831,7 +1831,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eff3b93dea656c948830b7f9054dbcb1, type: 2}
+  - {fileID: 2100000, guid: 095b9ec1b4e20a843ad35fd5842f88ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2366,7 +2366,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eff3b93dea656c948830b7f9054dbcb1, type: 2}
+  - {fileID: 2100000, guid: 095b9ec1b4e20a843ad35fd5842f88ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4021,6 +4021,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Button: {fileID: 4152415109931887243}
+  interfaceIncorrect: {fileID: 0}
+  mainCard: {fileID: 0}
+  updateIFTuto: {fileID: 0}
+  panel1GrabCodeTuto: {fileID: 0}
+  panel2rabCodeTuto: {fileID: 0}
+  lights: {fileID: 0}
 --- !u!114 &4152415108894426511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4033,6 +4039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c1b5e11ca942441a799306c903200f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkAnswerM: {fileID: 0}
+  triggerStay: 0
 --- !u!224 &4152415109931887236
 RectTransform:
   m_ObjectHideFlags: 0
