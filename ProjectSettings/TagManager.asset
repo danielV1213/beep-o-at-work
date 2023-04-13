@@ -18,6 +18,7 @@ TagManager:
   - Bombillo
   - correctCard
   - incorrectCard
+  - Laser
   layers:
   - Default
   - TransparentFX
