@@ -19,6 +19,7 @@ TagManager:
   - correctCard
   - incorrectCard
   - Laser
+  - Hand
   layers:
   - Default
   - TransparentFX

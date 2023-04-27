@@ -13,7 +13,7 @@ public class GameManagerC : MonoBehaviour
         int minutos = Mathf.FloorToInt(lastTime / 60f);
         int segundos = Mathf.FloorToInt(lastTime % 60f);
 
-        Debug.Log("Tiempo: " + minutos + " minutos " + segundos + " segundos");
+        //Debug.Log("Tiempo: " + minutos + " minutos " + segundos + " segundos");
 
     }
 
