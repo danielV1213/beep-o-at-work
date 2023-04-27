@@ -7,7 +7,7 @@ public class SpawnAnswerC : MonoBehaviour
     public SpawnAnswerM ObjectAnswers;
     public SpawnAnswerV positionsAnswers;
 
-    public int numIncorrect = 2;
+    public int numIncorrect = 3;
 
 
     void Start()
