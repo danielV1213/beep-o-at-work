@@ -20,6 +20,7 @@ TagManager:
   - incorrectCard
   - Laser
   - Hand
+  - ContentFor
   layers:
   - Default
   - TransparentFX

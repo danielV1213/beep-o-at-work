@@ -6,6 +6,12 @@ public class CheckCodeC : MonoBehaviour
 {
     public CheckCodeV checkCodeV;
     public CheckCodeM checkCodeM;
+
+    public bool generateFor = true;
+    public int indexSibilingFor;
+
+    public string orderBigO;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +38,19 @@ public class CheckCodeC : MonoBehaviour
             if (checkCodeM.ordersComplexity.ContainsKey(orderC))
             {
                 //Debug.Log(checkCodeM.ordersComplexity[orderC]);
-                string orderBigO = checkCodeM.ordersComplexity[orderC];
+                orderBigO = checkCodeM.ordersComplexity[orderC];
                 checkCodeV.changeAnswerView(orderBigO);
+
+                if (other.CompareTag("ContentFor") && generateFor)
+                {
+                    indexSibilingFor = transform.parent.GetSiblingIndex();
+
+                    checkCodeV.generateComponentFor(indexSibilingFor);
+                    
+                    generateFor = false;
+
+                    Debug.Log(indexSibilingFor);
+                }
             }
             else
             {
@@ -41,11 +58,21 @@ public class CheckCodeC : MonoBehaviour
             }
 
         }
+
+      
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         checkCodeV.cleanAnswerView();
+
+        if(other.CompareTag("ContentFor"))
+        {
+            checkCodeV.destroyComponentFor(indexSibilingFor);
+            generateFor = true;
+        }
+
     }
 
 
