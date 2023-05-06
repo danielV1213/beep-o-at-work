@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckCodeC : MonoBehaviour
 {
@@ -12,10 +13,18 @@ public class CheckCodeC : MonoBehaviour
 
     public string orderBigO;
 
+    public Color targetColor;
+    public Color originalColor;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject component = transform.parent.gameObject;
+        GameObject panel1 = component.transform.Find("Panel").gameObject;
+
+        // Establecer el color de los materiales de Panel1 y Panel2
+        originalColor = panel1.GetComponent<Image>().color;
+       
     }
 
     // Update is called once per frame
@@ -45,11 +54,14 @@ public class CheckCodeC : MonoBehaviour
                 {
                     indexSibilingFor = transform.parent.GetSiblingIndex();
 
-                    checkCodeV.generateComponentFor(indexSibilingFor);
+                    Transform parentComponent = transform.parent.transform;
+                    Transform parentContent = parentComponent.transform.parent.transform;
+
+                    checkCodeV.generateComponentFor(indexSibilingFor, parentComponent, parentContent);
                     
                     generateFor = false;
 
-                    Debug.Log(indexSibilingFor);
+                    Debug.Log("INDEX SIBILING: " + indexSibilingFor);
                 }
             }
             else
@@ -59,19 +71,33 @@ public class CheckCodeC : MonoBehaviour
 
         }
 
-      
+        // Comprobar si el otro objeto tiene el componente 'Image'
+        Image imageComponent = other.gameObject.GetComponentInChildren<Image>();
+        if (imageComponent != null)
+        {
+            // Obtener el color de la imagen
+            targetColor = imageComponent.color;
+            // Asignar el color al objeto actual
+
+            checkCodeV.changeColorPanel(targetColor);
+
+        }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
         checkCodeV.cleanAnswerView();
+        checkCodeV.changeOriginalColorPanel(originalColor);
 
-        if(other.CompareTag("ContentFor"))
+        if (other.CompareTag("ContentFor"))
         {
             checkCodeV.destroyComponentFor(indexSibilingFor);
             generateFor = true;
         }
+
+        //if(other.gameObject.name == "")
+
 
     }
 

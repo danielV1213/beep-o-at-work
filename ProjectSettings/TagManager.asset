@@ -21,6 +21,7 @@ TagManager:
   - Laser
   - Hand
   - ContentFor
+  - Anchor
   layers:
   - Default
   - TransparentFX
