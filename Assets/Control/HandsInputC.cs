@@ -22,6 +22,7 @@ public class HandsInputC : MonoBehaviour
         inputModel = new();
         inputView = GetComponent<HandsInputV>();
         inputView.UpdateHoloMap(inputModel.HoloMapState);
+        inputView.UpdateControlMenu(false);
     }
 
     // Update is called once per frame
@@ -65,6 +66,16 @@ public class HandsInputC : MonoBehaviour
 
         }
 
+        if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Menu))
+        {
+            Debug.Log("Ver controles");
+            inputView.UpdateControlMenu(true);
+
+        }
+        if (UxrAvatar.LocalAvatarInput.GetButtonsPressUp(UxrHandSide.Left, UxrInputButtons.Menu))
+        {
+            inputView.UpdateControlMenu(false);
+        }
     }
 
 
