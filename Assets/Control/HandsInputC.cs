@@ -22,7 +22,8 @@ public class HandsInputC : MonoBehaviour
         inputModel = new();
         inputView = GetComponent<HandsInputV>();
         inputView.UpdateHoloMap(inputModel.HoloMapState);
-        inputView.UpdateControlMenu(false);
+
+        //inputView.UpdateControlMenu(false);
     }
 
     // Update is called once per frame
@@ -49,33 +50,35 @@ public class HandsInputC : MonoBehaviour
         if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Menu))
         {
             if (SceneManager.GetActiveScene().name != "Menu")
-            {
-                stateMenu = !stateMenu;
+            {  
                 inputView.updateMenu(stateMenu);
+                stateMenu = !stateMenu;
             }
             
         }
 
 
-        if (contPressButtonTime >= 100)
+        if (contPressButtonTime >= 100 && !inputModel.TutoOMitir)
         {
             inputModel.TutoOMitir = true;
 
             inputView.SkipTutorial();
             lights.lightsRed();
 
-        }
 
-        if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Menu))
-        {
-            Debug.Log("Ver controles");
-            inputView.UpdateControlMenu(true);
 
         }
-        if (UxrAvatar.LocalAvatarInput.GetButtonsPressUp(UxrHandSide.Left, UxrInputButtons.Menu))
-        {
-            inputView.UpdateControlMenu(false);
-        }
+
+        //if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Menu))
+        //{
+        //    Debug.Log("Ver controles");
+        //    inputView.UpdateControlMenu(true);
+
+        //}
+        //if (UxrAvatar.LocalAvatarInput.GetButtonsPressUp(UxrHandSide.Left, UxrInputButtons.Menu))
+        //{
+        //    inputView.UpdateControlMenu(false);
+        //}
     }
 
 

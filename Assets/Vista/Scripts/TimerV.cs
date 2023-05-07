@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class TimerV : MonoBehaviour
 {
     public float timeUpdate;
@@ -10,25 +12,32 @@ public class TimerV : MonoBehaviour
     public TextMeshProUGUI textTimerMin;
     public TextMeshProUGUI textTimerSec;
 
+
+    public bool startExercise = false;
  
     // Start is called before the first frame update
     void Start()
     {
         timeUpdate = 150;
+        textTimerMin.text = "02";
+        textTimerSec.text = "30";
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeUpdate -= Time.deltaTime;
 
-        int minutos = Mathf.FloorToInt(timeUpdate / 60f);
-        int segundos = Mathf.FloorToInt(timeUpdate % 60f);
+        if(startExercise)
+        {
+            timeUpdate -= Time.deltaTime;
 
-        textTimerMin.text = "" + minutos;
-        textTimerSec.text = "" + segundos;
-   
+            int minutos = Mathf.FloorToInt(timeUpdate / 60f);
+            int segundos = Mathf.FloorToInt(timeUpdate % 60f);
 
+            textTimerMin.text = "" + minutos;
+            textTimerSec.text = "" + segundos;
+        }
+      
     }
 
     public void timeSeparate()
@@ -37,8 +46,17 @@ public class TimerV : MonoBehaviour
         //int minutos = Mathf.FloorToInt(time / 60f);
         //int segundos = Mathf.FloorToInt(time % 60f);
 
-       
-
     }
 
+    public void startCount()
+    {
+        startExercise = true;
+    }
+
+    internal void timeRestart()
+    {
+        timeUpdate = 150;
+        textTimerMin.text = "02";
+        textTimerSec.text = "30";
+    }
 }

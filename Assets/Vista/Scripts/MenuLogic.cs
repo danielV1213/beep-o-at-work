@@ -7,6 +7,7 @@ public class MenuLogic : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject confPanel;
+    public GameObject controlPanel;
     public GameObject principalPanel;
 
     public void buttonResume()
@@ -24,6 +25,19 @@ public class MenuLogic : MonoBehaviour
     {
         principalPanel.SetActive(true);
         confPanel.SetActive(false);
+    }
+
+
+    public void buttonOpenControls()
+    {
+        principalPanel.SetActive(false);
+        controlPanel.SetActive(true);
+    }
+
+    public void buttonCloseControls()
+    {
+        principalPanel.SetActive(true);
+        controlPanel.SetActive(false);
     }
 
 

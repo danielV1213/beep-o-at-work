@@ -9,7 +9,7 @@ public class HandsInputV : MonoBehaviour
     public GameObject holoMap;
     public GameObject laserLeft;
     public GameObject laserRight;
-    public GameObject controlsMenu;
+    //public GameObject controlsMenu;
     public List<GameObject> listInterfaces;
 
     public GameObject repairButton;
@@ -19,10 +19,14 @@ public class HandsInputV : MonoBehaviour
 
     public GameObject menuInterface;
 
-    public void UpdateControlMenu(bool state)
-    {
-        controlsMenu.SetActive(state);
-    }
+    public GameObject timerV;
+
+    public GameObject activarInterface3;
+
+    //public void UpdateControlMenu(bool state)
+    //{
+    //    controlsMenu.SetActive(state);
+    //}
     public void UpdateHoloMap(bool state)
     {
         holoMap.SetActive(state);
@@ -50,6 +54,10 @@ public class HandsInputV : MonoBehaviour
         automaticDoorScript.enabled = true;
 
         repairButton.SetActive(true);
+
+        timerV.SetActive(true);
+
+        activarInterface3.SetActive(false);
        
     }
 

@@ -12,7 +12,7 @@ public class SpawnAnswerC : MonoBehaviour
 
     void Start()
     {
-        ChangeAnswers();
+        //ChangeAnswers();
     }
   
     public void ChangeAnswers()

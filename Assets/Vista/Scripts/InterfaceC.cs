@@ -16,16 +16,27 @@ public class InterfaceC : MonoBehaviour
 
     public GameObject interfaceExercise;
     public GameObject interfaceGrabCode;
+   
+
+    public GameObject interfaceTuto2;
+
     public GameObject timer;
+    public TimerV timerV;
 
-
+    public Luces lightsC;
 
     void Start()
     {
         listUI[0].SetActive(true);
 
+        for (int i = 1; i < listUI.Count; i++)
+        {
+            listUI[i].SetActive(false);
+        }
 
-        if(this.gameObject.name == "Interface1")
+
+
+        if (this.gameObject.name == "Interface1")
         {
             automaticDoorScript = automaticDoorObject.GetComponent<AutomaticDoor>();
 
@@ -47,16 +58,33 @@ public class InterfaceC : MonoBehaviour
         if(this.gameObject.name == "Interface1")
         {
 
-            if (contList == 3)
+            if (listUI[contList].name == "PanelGeneradrorRoto")
             {
                 automaticDoorScript.enabled = true;
-            }else if (contList == 2)
-            {
-                //LUCES SE PONGAN ROJAS Y SUENE LA ALARMA
+
+                lightsC.lightsRed();
+
             }
+ 
         }
 
-  
+        if (this.gameObject.name == "Interface3")
+        {
+
+            if (listUI[contList].name == "PanelReparar")
+            {
+               
+                repairButtonObj.SetActive(true);
+
+            }
+
+            if (listUI[contList].name == "PanelTimer")
+            {
+
+                timer.SetActive(true);
+
+            }
+        }
 
     }
 
@@ -64,24 +92,26 @@ public class InterfaceC : MonoBehaviour
     {
 
         this.gameObject.SetActive(false);
-        repairButtonObj.SetActive(true);
-
-
+     
     }
 
 
     public void StartExercise()
     {
-        interfaceExercise.SetActive(true);
-        interfaceGrabCode.SetActive(true);
-        
+  
+        interfaceTuto2.SetActive(false);
 
+        repairButtonObj.SetActive(false);
+
+        interfaceExercise.SetActive(true);
+
+        interfaceGrabCode.SetActive(true);
     }
 
     public void timerStart()
     {
 
-        timer.SetActive(true);
+        timerV.startCount();
 
     }
 

@@ -8,7 +8,7 @@ public class Luces : MonoBehaviour
 {
     // Start is called before the first frame update
  
-    public CheckAnswerC checkC;
+    //public CheckAnswerC checkC;
 
     public GameObject lightsGreenObj;
     //public Material materialLight;

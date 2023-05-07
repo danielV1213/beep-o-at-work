@@ -55,59 +55,70 @@ public class CheckCodeV : MonoBehaviour
     }
 
 
-    public void destroyComponentFor(int parentIndex)
+    public void destroyComponentFor()
     {
 
-        //GameObject grandparentObject = transform.parent.parent.gameObject;
+        Transform parentComponent = transform.parent;
+        int indexComponent = parentComponent.GetSiblingIndex();
 
-        //GameObject parentObject = grandparentObject.transform.GetChild(parentIndex + 1).gameObject;
-        //GameObject parentObject2 = grandparentObject.transform.GetChild(parentIndex + 2).gameObject;
+        Transform parentContent = parentComponent.transform.parent;
 
+        Transform forContent = parentContent.GetChild(indexComponent + 1);
+        int indexForComponent = forContent.GetSiblingIndex();
 
-        //GameObject parentComponent = transform.parent.gameObject;
-        //GameObject parentContent = parentComponent.transform.parent.gameObject;
+        Debug.Log("Nombre For: " + forContent.name);
+    
+        //Debug.Log("EXIIIT: " + parentComponent.name);
 
-        //if (parentContent.transform.Find("ComponentInsideFor(Clone)")){
+        int indexEndFor = 0;
+      
+   
+        if (forContent.name == "ComponentInsideFor(Clone)")
+        {
+            //Debug.Log("EXIIIT: " + transform.parent.name);
 
-        //}
+            for (int i = 0; i < parentContent.childCount; i++)
+            {
+                Transform componentsChilds = parentContent.GetChild(i);
 
-        //if (parentComponent.gameObject.name == "ComponentInsideFor(Clone)")
-        //{
-        //    GameObject componentStart = parentContent.transform.Find("ComponentInsideFor(Clone)").gameObject;
-        //    GameObject componentEnd = parentContent.transform.Find("ComponentEndFunction1(Clone)").gameObject;
+                if (componentsChilds.name == "ComponentEndFunction1(Clone)" && i > indexForComponent)
+                {
+                    indexEndFor = i;
+                    break; // salir del loop una vez que se encuentre "endFor"
+                }
+            }
 
-        //    for (int i = componentStart.transform.GetSiblingIndex(); i <= componentEnd.transform.GetSiblingIndex(); i++)
-        //    {
-        //        GameObject child = parentContent.transform.GetChild(i).gameObject;
-        //        GameObject child2 = child.transform.GetChild(2).gameObject;
-        //        GameObject child3 = child2.transform.GetChild(2).gameObject;
+            for (int i = indexForComponent; i <= indexEndFor; i++)
+            {
+                Destroy(parentContent.GetChild(i).gameObject);
+            }
 
-        //        Debug.Log("Nombre del hijo: " + child3.name);
-        //        Destroy(child.gameObject);
-        //    }
+        }
 
+        if (forContent.name == "ComponentInsideFor2(Clone)")
+        {
+            //Debug.Log("EXIIIT: " + transform.parent.name);
 
-        //}
-        //else
-        //{
-        //    GameObject componentStart = parentContent.transform.Find("ComponentInsideFor2").gameObject;
-        //    GameObject componentEnd = parentContent.transform.Find("ComponentEndFunction2").gameObject;
+            for (int i = 0; i < parentContent.childCount; i++)
+            {
+                Transform componentsChilds = parentContent.GetChild(i);
 
-        //    for (int i = componentStart.transform.GetSiblingIndex(); i <= componentEnd.transform.GetSiblingIndex(); i++)
-        //    {
-        //        Transform child = parentContent.transform.GetChild(i);
-        //        Destroy(child.gameObject);
-        //    }
+                if (componentsChilds.name == "ComponentEndFunction2(Clone)")
+                {
+                    indexEndFor = i;
+                    break; // salir del loop una vez que se encuentre "endFor"
+                }
+            }
 
-        //}
+            for (int i = indexForComponent; i <= indexEndFor; i++)
+            {
+                Destroy(parentContent.GetChild(i).gameObject);
+            }
 
+        }
 
-
-
-
-
-        Destroy(newObject);
-        Destroy(newObject2);
+        //Destroy(newObject);
+        //Destroy(newObject2);
 
 
     }

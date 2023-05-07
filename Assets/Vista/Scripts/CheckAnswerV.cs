@@ -17,7 +17,12 @@ public class CheckAnswerV : MonoBehaviour
 
     public Luces lights;
 
+    public GameObject buttonProbar;
 
+
+
+    public SpawnAnswerC spawnAnswerC;
+    public TimerV timerV;
 
     public void UpdateView(bool buttonDeploy)
     {
@@ -31,11 +36,12 @@ public class CheckAnswerV : MonoBehaviour
         panel2rabCodeTuto.SetActive(true);
     }
 
-    public void correcAnswer()
+    public void correctAnswer()
     {
         lights.lightsGreen();
         updateIFTuto.SetActive(false);
         interfaceCorrectAnswer.SetActive(true);
+        exercise.SetActive(false);
 
     }
     public void incorrectAnswer()
@@ -47,5 +53,12 @@ public class CheckAnswerV : MonoBehaviour
     }
 
  
+    public void restartExercise()
+    {
+        timerV.timeRestart();
+        spawnAnswerC.ChangeAnswers();
+        interfaceIncorrect.SetActive(false);
+        exercise.SetActive(true);
+    }
 
 }

@@ -92,7 +92,7 @@ public class CheckCodeC : MonoBehaviour
 
         if (other.CompareTag("ContentFor"))
         {
-            checkCodeV.destroyComponentFor(indexSibilingFor);
+            checkCodeV.destroyComponentFor();
             generateFor = true;
         }
 

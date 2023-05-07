@@ -7,15 +7,19 @@ public class SpawnAnswerV : MonoBehaviour
     public Transform[] spawnPositions;
     public List<GameObject> instantiatedObjects = new();
 
+
+
     public void InstantiateCorrectObject(GameObject correctObject, int positionIndex)
     {
         GameObject clon = Instantiate(correctObject, spawnPositions[positionIndex].position, spawnPositions[positionIndex].rotation) as GameObject;
+        clon.transform.parent = spawnPositions[positionIndex];
         instantiatedObjects.Add(clon);
     }
 
     public void InstantiateIncorrectObject(GameObject incorrectObject, int positionIndex)
     {
         GameObject clon = Instantiate(incorrectObject, spawnPositions[positionIndex].position, spawnPositions[positionIndex].rotation) as GameObject;
+        clon.transform.parent = spawnPositions[positionIndex];
         instantiatedObjects.Add(clon);
     }
         

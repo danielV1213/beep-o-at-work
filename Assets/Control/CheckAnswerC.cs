@@ -7,8 +7,8 @@ public class CheckAnswerC : MonoBehaviour
     public CheckAnswerM checkAnswerM;
     private CheckAnswerV checkAnswerV;
 
-    
 
+    public bool endExercise = false;
 
     public bool triggerStay = false;
 
@@ -37,6 +37,7 @@ public class CheckAnswerC : MonoBehaviour
 
         triggerStay = true;
 
+
     }
 
     private void Update()
@@ -58,13 +59,13 @@ public class CheckAnswerC : MonoBehaviour
         checkAnswerM.CheckAnswer();
         if (checkAnswerM.CorrectAnswer)
         {
-            checkAnswerV.correcAnswer();
+            checkAnswerV.correctAnswer();
             
         }
         else
         {
             checkAnswerV.incorrectAnswer();
-       
+
         }
       
 

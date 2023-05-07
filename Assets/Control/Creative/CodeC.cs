@@ -9,7 +9,7 @@ public class CodeC : MonoBehaviour
     public CodeM codeM;
 
     public Transform targetTransform;
-
+    //public Transform parent;
 
     private void OnTriggerStay(Collider other)
     {
@@ -68,4 +68,16 @@ public class CodeC : MonoBehaviour
         transform.rotation = targetTransform.rotation;
     }
 
+
+    //private void OnDestroy()
+    //{
+        
+    //    codeV.spawnNewCode(targetTransform, parent);
+
+    //}
+
+    //private void Start()
+    //{
+    //    parent = transform.parent;
+    //}
 }
