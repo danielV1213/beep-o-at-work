@@ -9,8 +9,8 @@ public class CodeV : MonoBehaviour
     public Image imagen;
     Color colorOriginal;
 
-    public GameObject prefabCode;
-    public Transform parentObj;
+    //public GameObject prefabCode;
+    //public Transform parentObj;
 
     private void Start()
     {
@@ -28,17 +28,15 @@ public class CodeV : MonoBehaviour
         imagen.color = colorConMenorOpacidad;
     }
 
-    internal void spawnNewCode(Transform targetTransform, Transform parent)
-    {
+    //public void spawnNewCode(Transform targetTransform)
+    //{
 
-       GameObject spawn = Instantiate(prefabCode, targetTransform.position, targetTransform.rotation);
+    //    GameObject spawn = Instantiate(prefabCode, targetTransform.position, targetTransform.rotation);
 
-        //spawn.transform.position = targetTransform.position;
-        //spawn.transform.rotation = targetTransform.rotation;
+    //    spawn.transform.position = targetTransform.position;
+    //    spawn.transform.rotation = targetTransform.rotation;
 
-        //spawn.transform.parent = parent.transform;
+    //    //spawn.transform.parent = parent.transform;
 
-
-
-    }
+    //}
 }

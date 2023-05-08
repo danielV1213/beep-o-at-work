@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public class CheckCodeC : MonoBehaviour
 {
     public CheckCodeV checkCodeV;
@@ -15,6 +15,15 @@ public class CheckCodeC : MonoBehaviour
 
     public Color targetColor;
     public Color originalColor;
+
+
+
+    public int sizeOriginalRect = 200;
+    public int sizeForRect = 200;
+    public int sizeCuadraticForRect = 300;
+
+    public event EventHandler OnChangeAnswer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +59,11 @@ public class CheckCodeC : MonoBehaviour
                 orderBigO = checkCodeM.ordersComplexity[orderC];
                 checkCodeV.changeAnswerView(orderBigO);
 
+                //Evento para saber cuando cambian las respuestas
+                //OnChangeAnswer?. es como decir si no es null
+                OnChangeAnswer?.Invoke(this, EventArgs.Empty);
+
+                
                 if (other.CompareTag("ContentFor") && generateFor)
                 {
                     indexSibilingFor = transform.parent.GetSiblingIndex();
@@ -61,7 +75,16 @@ public class CheckCodeC : MonoBehaviour
                     
                     generateFor = false;
 
-                    Debug.Log("INDEX SIBILING: " + indexSibilingFor);
+                    //Debug.Log("INDEX SIBILING: " + indexSibilingFor);
+
+
+                    checkCodeV.changeRectSize(sizeForRect);
+
+                }
+
+                if (other.CompareTag("ContentForCuadratic"))
+                {
+                    checkCodeV.changeRectSize(sizeCuadraticForRect);
                 }
             }
             else
@@ -88,6 +111,7 @@ public class CheckCodeC : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         checkCodeV.cleanAnswerView();
+
         checkCodeV.changeOriginalColorPanel(originalColor);
 
         if (other.CompareTag("ContentFor"))
@@ -98,6 +122,7 @@ public class CheckCodeC : MonoBehaviour
 
         //if(other.gameObject.name == "")
 
+        checkCodeV.changeRectSize(sizeOriginalRect);
 
     }
 

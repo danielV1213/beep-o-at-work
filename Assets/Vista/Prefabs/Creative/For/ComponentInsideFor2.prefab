@@ -305,6 +305,9 @@ MonoBehaviour:
   orderBigO: 
   targetColor: {r: 0, g: 0, b: 0, a: 0}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  sizeOriginalRect: 200
+  sizeForRect: 200
+  sizeCuadraticForRect: 300
 --- !u!114 &3711110962635394741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,8 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOrderC: {fileID: 3711110962242965585}
-  endFor: {fileID: 7032047951857850616, guid: fcca3fbc3bd902d4da868f4344264b54, type: 3}
-  insideFor: {fileID: 9006648789380972680, guid: bfb31dcafd7f7884d9c6bbfbd54968fd,
+  endFor: {fileID: 3711110963728812159}
+  insideFor: {fileID: 7032047951857850616, guid: fcca3fbc3bd902d4da868f4344264b54,
     type: 3}
   siblingIndex: 0
 --- !u!1 &3711110963625235255

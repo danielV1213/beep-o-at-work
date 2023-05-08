@@ -1,30 +1,97 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FinalOrderC : MonoBehaviour
 {
     public FinalOrderM finalOrderM;
     public FinalOrderV finalOrderV;
 
+   
+
     public string textOC1;
     public string textOC2;
+
+    public Transform contentParent;
+
+    public string finalString = "";
+    public bool inside = false;
+
+    private GameObject[] listComponent;
+    private CheckCodeC checkCodeC;
+
     void Start()
     {
-        
+        //listComponent = GameObject.FindGameObjectsWithTag("ComponentCrative");
+
+
+
+
+        //// Obtener el transform del contentParent
+        //Transform contentParentTransform = contentParent.transform;
+
+        //// Suscribirse al evento childAdded del transform del contentParent
+        //contentParentTransform.childAdded += OnChildAddedOrRemoved;
+
+        //// Suscribirse al evento childRemoved del transform del contentParent
+        //contentParentTransform.childRemoved += OnChildAddedOrRemoved;
+
+
+
+        //foreach (Transform component in contentParent.transform)
+        //{
+        //    Transform panel = component.GetChild(1);
+        //    TextMeshProUGUI textComponent = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //    textComponent.onTextChanged.AddListener(() => GenerateFinalString());
+        //}
+
+
+
+        GenerateFinalString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        textOC1 = finalOrderV.textOrderC1.text.ToString();
-        textOC2 = finalOrderV.textOrderC2.text.ToString();
+        //textOC1 = finalOrderV.textOrderC1.text.ToString();
+        //textOC2 = finalOrderV.textOrderC2.text.ToString();
 
-        finalOrderEvaluate();
+        //finalOrderEvaluate();
 
-        finalOrderV.changeFinalOrder(finalOrderM.FinalOrder, finalOrderM.imageNum);
+        //finalOrderV.changeFinalOrder(finalOrderM.FinalOrder, finalOrderM.imageNum);
+
     }
 
+    public void GenerateFinalString()
+    {
+        foreach (Transform component in contentParent.transform)
+        {
+            // Obtener el objeto Panel que es el primer hijo de cada Component
+            Transform panel = component.GetChild(1);
+            Debug.Log("PANEL:" + panel.name);
+            // Obtener el componente Text que es el primer hijo del objeto Panel
+            TextMeshProUGUI textComponent = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
+            Debug.Log("textComponent:" + textComponent.name);
+            // Agregar el texto al string final, separado por "+" o "*"
+            finalString += textComponent.text;
+
+            if (inside)
+            {
+                finalString += "+";
+            }
+            else
+            {
+                finalString += "*";
+            }
+        }
+
+        // Eliminar el último carácter agregado a finalString (que puede ser un "+" o "*")
+        finalString = finalString.Substring(0, finalString.Length - 1);
+
+        finalOrderV.finalString(finalString);
+    }
 
     public void finalOrderEvaluate()
     {

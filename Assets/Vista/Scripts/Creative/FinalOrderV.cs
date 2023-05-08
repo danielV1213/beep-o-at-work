@@ -22,6 +22,11 @@ public class FinalOrderV : MonoBehaviour
 
     }
 
+    public void finalString(string finalString)
+    {
+        textFinalOrder.text = $"<b><size=36>{finalString}</size></b>";
+    }
+
 
 
 

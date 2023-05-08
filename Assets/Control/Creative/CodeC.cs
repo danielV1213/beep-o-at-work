@@ -9,7 +9,8 @@ public class CodeC : MonoBehaviour
     public CodeM codeM;
 
     public Transform targetTransform;
-    //public Transform parent;
+    [SerializeField] private UxrGrabbableObject _targetGrabbable;
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -30,7 +31,7 @@ public class CodeC : MonoBehaviour
     }
 
 
-    [SerializeField] private UxrGrabbableObject _targetGrabbable;
+
 
     // OnEnable is a recommended place to subscribe to events
     private void OnEnable()
@@ -57,6 +58,7 @@ public class CodeC : MonoBehaviour
     {
         // This method receives a lot of information on the event in "e". We use it here to print the name of the object that was grabbed.
         //Debug.Log($"Object {e.GrabbableObject.name} was grabbed!");
+        
     }
 
     // This is the event handler called when the object was released
@@ -66,18 +68,15 @@ public class CodeC : MonoBehaviour
         //Debug.Log($"Object {e.GrabbableObject.name} was grabbed Released!");
         transform.position = targetTransform.position;
         transform.rotation = targetTransform.rotation;
+      
     }
 
 
     //private void OnDestroy()
     //{
-        
-    //    codeV.spawnNewCode(targetTransform, parent);
+
+    //    codeV.spawnNewCode(targetTransform);
 
     //}
 
-    //private void Start()
-    //{
-    //    parent = transform.parent;
-    //}
 }

@@ -22,4 +22,5 @@ public class NewBehaviourScript : MonoBehaviour
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
     }
+
 }

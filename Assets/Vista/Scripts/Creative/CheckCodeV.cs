@@ -97,7 +97,7 @@ public class CheckCodeV : MonoBehaviour
 
         if (forContent.name == "ComponentInsideFor2(Clone)")
         {
-            //Debug.Log("EXIIIT: " + transform.parent.name);
+            Debug.Log("EXIIIT: " + parentComponent.name);
 
             for (int i = 0; i < parentContent.childCount; i++)
             {
@@ -123,6 +123,7 @@ public class CheckCodeV : MonoBehaviour
 
     }
 
+ 
     public void changeColorPanel(Color targetColor)
     {
         GameObject component = transform.parent.gameObject;
@@ -147,5 +148,16 @@ public class CheckCodeV : MonoBehaviour
         panel2.GetComponent<Image>().color = originalColor;
     }
 
+
+
+    public void changeRectSize(int newSize)
+    {
+        RectTransform parentComponentRect = transform.parent.GetComponent<RectTransform>();
+        RectTransform parentContentRect = transform.parent.parent.GetComponent<RectTransform>();
+        // Cambiar la altura del objeto padre
+        parentComponentRect.sizeDelta = new Vector2(parentComponentRect.sizeDelta.x, newSize);
+        // Actualizar Rect
+        LayoutRebuilder.ForceRebuildLayoutImmediate(parentContentRect);
+    }
 
 }

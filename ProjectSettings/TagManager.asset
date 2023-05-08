@@ -22,6 +22,8 @@ TagManager:
   - Hand
   - ContentFor
   - Anchor
+  - ContentForCuadratic
+  - ComponentCreative
   layers:
   - Default
   - TransparentFX
