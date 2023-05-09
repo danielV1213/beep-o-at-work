@@ -150,6 +150,9 @@ GameObject:
   - component: {fileID: 5214315815964585744}
   - component: {fileID: 8793207845112296059}
   - component: {fileID: 6852166304628192842}
+  - component: {fileID: 2620121790857592362}
+  - component: {fileID: -3322242279626503263}
+  - component: {fileID: -7320943680735698642}
   m_Layer: 0
   m_Name: Correct_CodeCard_2
   m_TagString: correctCard
@@ -377,6 +380,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2620121790857592362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214315815964585745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d52fb3455f5bd24b9d87ddbafc0fa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  codePositionM: {fileID: -3322242279626503263}
+  codePositionV: {fileID: -7320943680735698642}
+  _targetGrabbable: {fileID: 5214315815964585744}
+--- !u!114 &-3322242279626503263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214315815964585745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09055a8964503ee45a82735fb9576e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+--- !u!114 &-7320943680735698642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214315815964585745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a465e52ce79b4ec46a60452b69588068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagen: {fileID: 5214315816363148960}
 --- !u!1 &5214315816363148962
 GameObject:
   m_ObjectHideFlags: 0

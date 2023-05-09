@@ -24,6 +24,7 @@ TagManager:
   - Anchor
   - ContentForCuadratic
   - ComponentCreative
+  - ComponentWhile
   layers:
   - Default
   - TransparentFX

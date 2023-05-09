@@ -66,29 +66,48 @@ public class FinalOrderC : MonoBehaviour
 
     public void GenerateFinalString()
     {
+        finalString = "";
         foreach (Transform component in contentParent.transform)
         {
+            string componentName = component.name;
             // Obtener el objeto Panel que es el primer hijo de cada Component
-            Transform panel = component.GetChild(1);
-            Debug.Log("PANEL:" + panel.name);
-            // Obtener el componente Text que es el primer hijo del objeto Panel
-            TextMeshProUGUI textComponent = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
-            Debug.Log("textComponent:" + textComponent.name);
-            // Agregar el texto al string final, separado por "+" o "*"
-            finalString += textComponent.text;
+            if (component.childCount > 1)
+            {
+                Transform panel = component.GetChild(1);
 
-            if (inside)
-            {
-                finalString += "+";
+
+                Debug.Log("PANEL:" + panel.name);
+                // Obtener el componente Text que es el primer hijo del objeto Panel
+                TextMeshProUGUI textComponent = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
+                Debug.Log("textComponent:" + textComponent.name);
+                // Agregar el texto al string final, separado por "+" o "*"
+
+                if (textComponent.text == "")
+                {
+
+                }
+                else
+                {
+
+                    if (componentName == "ComponentInsideFor(Clone)" || componentName == "ComponentInsideFor2(Clone)")
+                    {
+                        finalString += "*";
+                    }
+                    else
+                    {
+                        finalString += "+";
+                    }
+
+                    finalString += textComponent.text;
+                }
+
             }
-            else
-            {
-                finalString += "*";
-            }
+          
+           
         }
 
         // Eliminar el último carácter agregado a finalString (que puede ser un "+" o "*")
-        finalString = finalString.Substring(0, finalString.Length - 1);
+        finalString = finalString.Substring(1);
 
         finalOrderV.finalString(finalString);
     }

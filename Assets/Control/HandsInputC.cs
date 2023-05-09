@@ -35,17 +35,17 @@ public class HandsInputC : MonoBehaviour
             inputView.UpdateHoloMap(inputModel.HoloMapState);
         }
 
-        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button1))
-        {
-            inputModel.LaserLeftState = !inputModel.LaserLeftState;
-            inputView.UpdateLaserLeft(inputModel.LaserLeftState);
-        }
+        //if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button1))
+        //{
+        //    inputModel.LaserLeftState = !inputModel.LaserLeftState;
+        //    inputView.UpdateLaserLeft(inputModel.LaserLeftState);
+        //}
 
-        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Button1))
-        {
-            inputModel.LaserRightState = !inputModel.LaserRightState;
-            inputView.UpdateLaserRight(inputModel.LaserRightState);
-        }
+        //if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Button1))
+        //{
+        //    inputModel.LaserRightState = !inputModel.LaserRightState;
+        //    inputView.UpdateLaserRight(inputModel.LaserRightState);
+        //}
 
         if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Menu))
         {

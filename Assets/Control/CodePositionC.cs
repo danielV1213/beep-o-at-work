@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UltimateXR.Manipulation;
 using UnityEngine;
 
-public class CodeC : MonoBehaviour
+public class CodePositionC : MonoBehaviour
 {
-    public CodeV codeV;
-    public CodeM codeM;
-
-    public Transform targetTransform;
+    public CodePositionM codePositionM;
+    public CodePositionV codePositionV;
     [SerializeField] private UxrGrabbableObject _targetGrabbable;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-       
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Hand"))
         {
-            codeV.changeColorOpacity();
+            codePositionV.changeColorOpacity();
         }
 
     }
@@ -29,7 +33,7 @@ public class CodeC : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Hand"))
         {
-            codeV.changeColorToOriginal();
+            codePositionV.changeColorToOriginal();
         }
 
     }
@@ -62,7 +66,7 @@ public class CodeC : MonoBehaviour
     {
         // This method receives a lot of information on the event in "e". We use it here to print the name of the object that was grabbed.
         //Debug.Log($"Object {e.GrabbableObject.name} was grabbed!");
-        
+
     }
 
     // This is the event handler called when the object was released
@@ -70,17 +74,9 @@ public class CodeC : MonoBehaviour
     {
         // This method receives a lot of information on the event in "e". We use it here to print the name of the object that was released.
         //Debug.Log($"Object {e.GrabbableObject.name} was grabbed Released!");
-        transform.position = targetTransform.position;
-        transform.rotation = targetTransform.rotation;
-      
+        transform.position = codePositionM.parent.position;
+        transform.rotation = codePositionM.parent.rotation;
+
     }
-
-
-    //private void OnDestroy()
-    //{
-
-    //    codeV.spawnNewCode(targetTransform);
-
-    //}
 
 }

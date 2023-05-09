@@ -21,6 +21,7 @@ public class CheckCodeC : MonoBehaviour
     public int sizeOriginalRect = 200;
     public int sizeForRect = 200;
     public int sizeCuadraticForRect = 300;
+    public int sizeWhileRect = 250;
 
     public event EventHandler OnChangeAnswer;
 
@@ -80,12 +81,22 @@ public class CheckCodeC : MonoBehaviour
 
                     checkCodeV.changeRectSize(sizeForRect);
 
-                }
-
-                if (other.CompareTag("ContentForCuadratic"))
+                }else if (other.CompareTag("ContentForCuadratic"))
                 {
                     checkCodeV.changeRectSize(sizeCuadraticForRect);
                 }
+                else if(other.CompareTag("ComponentWhile"))
+                {
+                    checkCodeV.changeRectSize(sizeWhileRect);
+                }
+                else
+                {
+                    checkCodeV.changeRectSize(sizeOriginalRect);
+                }
+
+              
+
+
             }
             else
             {

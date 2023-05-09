@@ -12,15 +12,22 @@ public class TimerV : MonoBehaviour
     public TextMeshProUGUI textTimerMin;
     public TextMeshProUGUI textTimerSec;
 
+    public TextMeshProUGUI textTime;
 
     public bool startExercise = false;
- 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         timeUpdate = 150;
-        textTimerMin.text = "02";
-        textTimerSec.text = "30";
+        //textTimerMin.text = "02";
+        //textTimerSec.text = "30";
+        int minutos = Mathf.FloorToInt(timeUpdate / 60f);
+        int segundos = Mathf.FloorToInt(timeUpdate % 60f);
+
+        textTime.text = string.Format("{00:00}:{01:00}", minutos, segundos);
     }
 
     // Update is called once per frame
@@ -34,20 +41,13 @@ public class TimerV : MonoBehaviour
             int minutos = Mathf.FloorToInt(timeUpdate / 60f);
             int segundos = Mathf.FloorToInt(timeUpdate % 60f);
 
-            textTimerMin.text = "" + minutos;
-            textTimerSec.text = "" + segundos;
+            textTime.text = string.Format("{00:00}:{01:00}",minutos,segundos);
+
+            //textTimerMin.text = "" + minutos;
+            //textTimerSec.text = "" + segundos;
         }
       
     }
-
-    public void timeSeparate()
-    {
-
-        //int minutos = Mathf.FloorToInt(time / 60f);
-        //int segundos = Mathf.FloorToInt(time % 60f);
-
-    }
-
     public void startCount()
     {
         startExercise = true;
