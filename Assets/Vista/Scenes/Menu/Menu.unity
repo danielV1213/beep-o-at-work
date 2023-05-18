@@ -1260,6 +1260,8 @@ MonoBehaviour:
   repairButton: {fileID: 0}
   automaticDoorObject: {fileID: 0}
   menuInterface: {fileID: 0}
+  timerV: {fileID: 0}
+  activarInterface3: {fileID: 0}
 --- !u!114 &694741667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,7 +2265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1353591942}
   - component: {fileID: 1353591943}
-  - component: {fileID: 1353591944}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -2304,20 +2305,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 209.42, y: 49, z: 51.62}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1353591944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353591941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2a3c66b3b125945ae49ebc62c314fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 48725765}
-  audioClipList: {fileID: 8300000, guid: 86cb4ecd1dbb82d48baeff4ec891f42a, type: 3}
 --- !u!1 &1408782328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1435732045}
   - component: {fileID: 1435732044}
-  - component: {fileID: 1435732046}
   m_Layer: 0
   m_Name: Interface1
   m_TagString: Untagged
@@ -2483,6 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confPanel: {fileID: 280012420}
+  controlPanel: {fileID: 0}
   principalPanel: {fileID: 511099486}
 --- !u!4 &1435732045
 Transform:
@@ -2501,20 +2488,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1435732046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435732043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2a3c66b3b125945ae49ebc62c314fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 48725765}
-  audioClipList: {fileID: 0}
 --- !u!1 &1509220618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2747,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673646923}
   - component: {fileID: 1673646924}
-  - component: {fileID: 1673646925}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -2815,20 +2787,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 209.42, y: 49, z: 51.62}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1673646925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673646922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2a3c66b3b125945ae49ebc62c314fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 48725765}
-  audioClipList: {fileID: 8300000, guid: 1b268bd9acf8329489f33dc9babff6ad, type: 3}
 --- !u!1 &1822929053
 GameObject:
   m_ObjectHideFlags: 0
@@ -4759,7 +4717,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2107201652}
   - component: {fileID: 2107201653}
-  - component: {fileID: 2107201654}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -4800,17 +4757,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 209.42, y: 49, z: 51.62}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2107201654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107201651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2a3c66b3b125945ae49ebc62c314fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 48725765}
-  audioClipList: {fileID: 8300000, guid: 34029c217b4508d4ea4f694febdec8a1, type: 3}
