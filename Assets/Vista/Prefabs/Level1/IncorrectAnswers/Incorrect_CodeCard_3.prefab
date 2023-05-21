@@ -91,6 +91,9 @@ GameObject:
   - component: {fileID: 2727711091896994124}
   - component: {fileID: 1693777462337754151}
   - component: {fileID: 3643964749039805638}
+  - component: {fileID: 6207352708301620774}
+  - component: {fileID: 4044480301610872751}
+  - component: {fileID: 3283597251651823949}
   m_Layer: 0
   m_Name: Incorrect_CodeCard_3
   m_TagString: incorrectCard
@@ -175,7 +178,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.2, y: 1.2, z: 3.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2727711091896994124
 MonoBehaviour:
@@ -239,8 +242,8 @@ MonoBehaviour:
     _avatarGripPoseEntries: []
     _alignToController: 0
     _alignToControllerAxes: {fileID: 0}
-    _grabProximityMode: 0
-    _grabProximityBox: {fileID: 0}
+    _grabProximityMode: 1
+    _grabProximityBox: {fileID: 2727711091896994123}
     _maxDistanceGrab: 1
     _grabProximityTransformUseSelf: 1
     _grabProximityTransform: {fileID: 0}
@@ -318,6 +321,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6207352708301620774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727711091896994125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d52fb3455f5bd24b9d87ddbafc0fa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  codePositionM: {fileID: 4044480301610872751}
+  codePositionV: {fileID: 3283597251651823949}
+  _targetGrabbable: {fileID: 2727711091896994124}
+--- !u!114 &4044480301610872751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727711091896994125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09055a8964503ee45a82735fb9576e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+--- !u!114 &3283597251651823949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727711091896994125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a465e52ce79b4ec46a60452b69588068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagen: {fileID: 2727711091490169084}
 --- !u!1 &2727711092601674031
 GameObject:
   m_ObjectHideFlags: 0

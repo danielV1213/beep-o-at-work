@@ -38,7 +38,14 @@ public class CheckAnswerV : MonoBehaviour
 
     public void correctAnswer()
     {
-        lights.lightsGreen();
+        try
+        {
+            lights.lightsGreen();
+        }
+        catch (System.Exception)
+        {
+
+        }
         updateIFTuto.SetActive(false);
         interfaceCorrectAnswer.SetActive(true);
         exercise.SetActive(false);

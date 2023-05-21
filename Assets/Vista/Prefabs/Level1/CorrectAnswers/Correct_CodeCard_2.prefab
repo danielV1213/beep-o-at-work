@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2565256873798938541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,9 +66,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "public static boolean busquedaHashSet(int[] arreglo, int elemento) {\r\n   
-    Set<Integer> set = new HashSet<>();\r\n\r\n    for (int num : arreglo) {\r\n       
-    set.add(num);\r\n    }\r\n\r\n    return set.contains(elemento);\r\n}\r\n"
+  m_text: "public static void insertionSort(int[] arr) {\r\n    int n = arr.length;\r\n   
+    for (int i = 1; i < n; ++i) {\r\n        int key = arr[i];\r\n        int j =
+    i - 1;\r\n\r\n        while (j >= 0 && arr[j] > key) {\r\n            arr[j +
+    1] = arr[j];\r\n            j = j - 1;\r\n        }\r\n        arr[j + 1] = key;\r\n   
+    }\r\n}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -152,11 +154,11 @@ GameObject:
   - component: {fileID: 5214315815964585744}
   - component: {fileID: 8793207845112296059}
   - component: {fileID: 6852166304628192842}
-  - component: {fileID: 2620121790857592362}
-  - component: {fileID: -3322242279626503263}
-  - component: {fileID: -7320943680735698642}
+  - component: {fileID: 1476262261711310601}
+  - component: {fileID: 8912167001909900573}
+  - component: {fileID: 8229322014416727342}
   m_Layer: 0
-  m_Name: Correct_CodeCard_1
+  m_Name: Correct_CodeCard_2
   m_TagString: correctCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +241,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.2, y: 1.2, z: 3.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5214315815964585744
 MonoBehaviour:
@@ -303,8 +305,8 @@ MonoBehaviour:
     _avatarGripPoseEntries: []
     _alignToController: 0
     _alignToControllerAxes: {fileID: 0}
-    _grabProximityMode: 0
-    _grabProximityBox: {fileID: 0}
+    _grabProximityMode: 1
+    _grabProximityBox: {fileID: 5214315815964585751}
     _maxDistanceGrab: 1
     _grabProximityTransformUseSelf: 1
     _grabProximityTransform: {fileID: 0}
@@ -382,7 +384,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2620121790857592362
+--- !u!114 &1476262261711310601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,10 +396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d52fb3455f5bd24b9d87ddbafc0fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codePositionM: {fileID: -3322242279626503263}
-  codePositionV: {fileID: -7320943680735698642}
+  codePositionM: {fileID: 8912167001909900573}
+  codePositionV: {fileID: 8229322014416727342}
   _targetGrabbable: {fileID: 5214315815964585744}
---- !u!114 &-3322242279626503263
+--- !u!114 &8912167001909900573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
---- !u!114 &-7320943680735698642
+--- !u!114 &8229322014416727342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +450,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5214315816363148962}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -459,7 +461,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 2}
+  m_SizeDelta: {x: 1, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5214315816363148967
 CanvasRenderer:
