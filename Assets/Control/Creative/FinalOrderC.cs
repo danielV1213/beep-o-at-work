@@ -3,51 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class FinalOrderC : MonoBehaviour
 {
     public FinalOrderM finalOrderM;
     public FinalOrderV finalOrderV;
 
-   
-
-    public string textOC1;
-    public string textOC2;
-
     public Transform contentParent;
 
     public string finalString = "";
     public bool inside = false;
 
-    private GameObject[] listComponent;
-    private CheckCodeC checkCodeC;
+
+    List<string> results = new List<string>();
+
 
     void Start()
     {
-        //listComponent = GameObject.FindGameObjectsWithTag("ComponentCrative");
-
-
-
-
-        //// Obtener el transform del contentParent
-        //Transform contentParentTransform = contentParent.transform;
-
-        //// Suscribirse al evento childAdded del transform del contentParent
-        //contentParentTransform.childAdded += OnChildAddedOrRemoved;
-
-        //// Suscribirse al evento childRemoved del transform del contentParent
-        //contentParentTransform.childRemoved += OnChildAddedOrRemoved;
-
-
-
-        //foreach (Transform component in contentParent.transform)
-        //{
-        //    Transform panel = component.GetChild(1);
-        //    TextMeshProUGUI textComponent = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
-        //    textComponent.onTextChanged.AddListener(() => GenerateFinalString());
-        //}
-
-
 
         GenerateFinalString();
     }
@@ -55,13 +28,24 @@ public class FinalOrderC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //textOC1 = finalOrderV.textOrderC1.text.ToString();
-        //textOC2 = finalOrderV.textOrderC2.text.ToString();
 
-        //finalOrderEvaluate();
+    }
 
-        //finalOrderV.changeFinalOrder(finalOrderM.FinalOrder, finalOrderM.imageNum);
+    public void RunAnswer()
+    {
+        GenerateFinalString();
 
+        results.Clear();
+
+        separateTerms();
+
+        (string maxOrder, int index) = GetMaxOrder();
+
+        finalOrderV.changeFinalOrder(maxOrder, index);
+
+
+
+        //Debug.Log(GetMaxOrder());
     }
 
     public void GenerateFinalString()
@@ -110,65 +94,390 @@ public class FinalOrderC : MonoBehaviour
         finalString = finalString.Substring(1);
 
         finalOrderV.finalString(finalString);
+
     }
 
-    public void finalOrderEvaluate()
+    
+
+    public void separateTerms()
     {
+        results.Clear();
 
+        string[] terms = finalString.Split('+');
 
-        if (textOC1.Equals("O(1)"))
+        foreach (string term in terms)
         {
-            switch (textOC2)
+            //Debug.Log(term);
+            if (term.Contains("*"))
             {
-                case "O(n)":
-                    finalOrderM.imageNum = 1;
-                    finalOrderM.FinalOrder = textOC2;
-                    break;
-                case "O(n^2)":
-                    finalOrderM.imageNum = 2;
-                    finalOrderM.FinalOrder = textOC2;
-                    break;
-                case "O(Log n)":
-                    finalOrderM.imageNum = 3;
-                    finalOrderM.FinalOrder = textOC2;
-                    break;
-                default:
-                    finalOrderM.FinalOrder = textOC1;
-                    break;
+                if (term.Count(c => c == '*') == 1)
+                {
+                    //simpleMult.Add(term);
+                    string res = evaluateMultiplication(term);
+                    results.Add(res);
+                }
+                else if (term.Count(c => c == '*') == 2)
+                {
+
+                    string[] tempTerm = term.Split('*');
+
+                    string temp2Term = tempTerm[0] + "*" + tempTerm[1];
+
+                    string res = evaluateMultiplication(temp2Term);
+
+                    string temp3Term = res + "*" + tempTerm[2];
+
+                    string res2 = evaluateMultiplication(temp3Term);
+
+                    results.Add(res2);
+                }
             }
-
-           
-        }else if (textOC2.Equals("O(1)"))
-        {
-            switch (textOC1)
+            else
             {
-                case "O(n)":
-                    finalOrderM.imageNum = 1;
-                    finalOrderM.FinalOrder = textOC1;
-                    break;
-                case "O(n^2)":
-                    finalOrderM.imageNum = 2;
-                    finalOrderM.FinalOrder = textOC1;
-                    break;
-                case "O(Log n)":
-                    finalOrderM.imageNum = 3;
-                    finalOrderM.FinalOrder = textOC1;
-                    break;
-                default:
-                    finalOrderM.FinalOrder = textOC2;
-                    break;
+                results.Add(term);
             }
 
         }
-        else if (textOC1.Equals("") || textOC2.Equals(""))
+    }
+    public string evaluateMultiplication(string mult)
+    {
+        string result = "";
+
+        if (mult.Contains("*O(1)"))
         {
-            finalOrderM.FinalOrder = "Vacio";
+            result = mult.Replace("*O(1)", "");
+        }
+        else if (mult.Contains("O(1)*"))
+        {
+            result = mult.Replace("O(1)*", "");
         }
         else
         {
-            finalOrderM.FinalOrder = "Proximamante";
+            if (mult.Contains("O(n)"))
+            {
+                bool count = RepeatedValue("O(n)", mult);
+
+                if (count)
+                {
+                    result = "O(n^2)";
+                    //results.Add("O(n^2)");
+                }
+                else
+                {
+                    if (mult.Contains("O(n^2)"))
+                    {
+                        result = "O(n^3)";
+                        //results.Add("O(n^3)");
+                    }
+                    else if (mult.Contains("O(n^3)")) //result prev
+                    {
+                        result = "O(n^4)";
+                    }
+                    else if (mult.Contains("O(n^4)")) //result prev
+                    {
+                        result = "O(n^5)";
+                    }
+                    else if (mult.Contains("O(Logn)"))
+                    {
+                        result = "O(nLogn)";
+                    }
+                    else if (mult.Contains("O(nLogn)")) //result prev
+                    {
+                        result = "O(n^2Logn)";
+                    }
+                    else if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^3Logn)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(nLog^2n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+
+            }
+            else if (mult.Contains("O(n^2)"))
+            {
+                bool count = RepeatedValue("O(n^2)", mult);
+
+                if (count)
+                {
+                    result = "O(n^4)";
+                    //results.Add("O(n^4)");
+                }
+                else
+                {
+
+                    if (mult.Contains("O(n^3)")) //result prev
+                    {
+                        result = "O(n^5Logn)";
+                    }
+                    else if (mult.Contains("O(n^4)")) //result prev
+                    {
+                        result = "O(n^6Logn)";
+                    }
+                    else if (mult.Contains("O(Logn)"))
+                    {
+                        result = "O(n^2Logn)";
+                    }
+                    else if (mult.Contains("O(nLogn)")) //result prev
+                    {
+                        result = "O(n^3Logn)";
+                    }
+                    else if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^4Logn)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(n^2Log^2n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+                }
+            }
+            else if (mult.Contains("O(Logn)"))
+            {
+                bool count = RepeatedValue("O(Logn)", mult);
+
+                if (count)
+                {
+                    result = "O(Log^2n)";
+                    //results.Add("O(Log^2n)");
+                }
+                else
+                {
+                    if (mult.Contains("O(n^3)")) //result prev
+                    {
+                        result = "O(n^3Logn)";
+                    }
+                    else if (mult.Contains("O(n^4)")) //result prev
+                    {
+                        result = "O(n^4Logn)";
+                    }
+                    else if (mult.Contains("O(nLogn)")) //result prev
+                    {
+                        result = "O(nLog^2n)";
+                    }
+                    else if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^2Log^2n)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(Log^3n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+            }
+            else if (mult.Contains("O(n^3)"))
+            {
+                bool count = RepeatedValue("O(n^3)", mult);
+
+                if (count)
+                {
+                    result = "O(n^6)";
+                }
+                else
+                {
+                    if (mult.Contains("O(n^4)")) //result prev
+                    {
+                        result = "O(n^7)";
+                    }
+                    else if (mult.Contains("O(nLogn)")) //result prev
+                    {
+                        result = "O(n^4Logn)";
+                    }
+                    else if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^5Logn)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(n^3Log^2n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+            }
+            else if (mult.Contains("O(n^4)"))
+            {
+                bool count = RepeatedValue("O(n^4)", mult);
+
+                if (count)
+                {
+                    result = "O(n^8)";
+                }
+                else
+                {
+                    if (mult.Contains("O(nLogn)")) //result prev
+                    {
+                        result = "O(n^5Logn)";
+                    }
+                    else if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^6Logn)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(n^4Log^2n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+            }
+            else if (mult.Contains("O(nLogn)"))
+            {
+                bool count = RepeatedValue("O(nLogn)", mult);
+
+                if (count)
+                {
+                    result = "O(n^2Log^2n)";
+                }
+                else
+                {
+                    if (mult.Contains("O(n^2Logn)")) //result prev
+                    {
+                        result = "O(n^3Log^2n)";
+                    }
+                    else if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(Log^4n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+            }
+            else if (mult.Contains("O(n^2Logn)"))
+            {
+                bool count = RepeatedValue("O(n^2Logn)", mult);
+
+                if (count)
+                {
+                    result = "O(n^4Log^2n)";
+                }
+                else
+                {
+                    if (mult.Contains("O(Log^2n)")) //result prev
+                    {
+                        result = "O(n^2Log^3n)";
+                    }
+                    else
+                    {
+                        Debug.Log("No se encuentra el resultado de: " + mult);
+                    }
+
+                }
+            }
+            else if (mult.Contains("O(Log^2n)"))
+            {
+                bool count = RepeatedValue("O(Log^2n)", mult);
+
+                if (count)
+                {
+                    result = "O(Log^4n)";
+                }
+                else
+                {
+                    Debug.Log("No se encuentra el resultado de: " + mult);
+                }
+            }
+        }
+
+        return result;
+    }
+    private bool RepeatedValue(string secuency, string termino)
+    {
+        int count = 0;
+        int index = termino.IndexOf(secuency);
+
+        while (index != -1)
+        {
+            count++;
+            index = termino.IndexOf(secuency, index + 1);
+        }
+        if (count == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
 
     }
+
+    Dictionary<string, int> complexityValues = new Dictionary<string, int>()
+    {
+    {"O(1)", 1},
+    {"O(Logn)", 2},
+    {"O(Log^2n)", 3},
+    {"O(Log^3n)", 4},
+    {"O(Log^4n)", 5},
+    {"O(n)", 6},
+    {"O(nLogn)", 7},
+    {"O(nLog^2n)", 8},
+    {"O(n^2)", 9},
+    {"O(n^2Logn)", 10},
+    {"O(n^2Log^2n)", 11},
+    {"O(n^2Log^3n)", 12},
+    {"O(n^3)", 13},
+    {"O(n^3Logn)", 14},
+    {"O(n^3Log^2n)", 15},
+    {"O(n^4)", 16},
+    {"O(n^4Logn)", 17},
+    {"O(n^4Log^2n)", 18},
+    {"O(n^5)", 19},
+    {"O(n^5Logn)", 20},
+    {"O(n^6)", 21},
+    {"O(n^6Logn)", 22},
+    {"O(n^8)", 23}
+    };
+    private (string, int) GetMaxOrder()
+    {
+        // Variables para almacenar el resultado con el número mayor
+        string resultWithMaxComplexity = "";
+        int maxComplexityValue = 0;
+
+        foreach (string result in results)
+        {
+            if (complexityValues.TryGetValue(result, out int complexityValue))
+            {
+                if (complexityValue > maxComplexityValue)
+                {
+                    maxComplexityValue = complexityValue;
+                    resultWithMaxComplexity = result;
+                }
+            }
+        }
+
+        return (resultWithMaxComplexity, maxComplexityValue);
+    }
+
+
+
+
+
+
 
 }

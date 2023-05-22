@@ -9,7 +9,7 @@ public class CheckCodeM : MonoBehaviour
     public Dictionary<string, string> ordersComplexity = new Dictionary<string, string>{
         { "constante", "O(1)" },
         { "lineal", "O(n)" },
-        { "logaritmica", "O(Log n)" },
+        { "logaritmica", "O(Logn)" },
         { "cuadratica", "O(n^2)" }
     };
 

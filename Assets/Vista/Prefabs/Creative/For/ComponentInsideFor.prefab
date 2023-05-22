@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ceb54ffbc7c2f74292ff6a3cdcc0d3e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -304,6 +304,10 @@ MonoBehaviour:
   orderBigO: 
   targetColor: {r: 0, g: 0, b: 0, a: 0}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  sizeOriginalRect: 200
+  sizeForRect: 200
+  sizeCuadraticForRect: 300
+  sizeWhileRect: 250
 --- !u!114 &9006648788325479249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9006648788834924767
 Transform:
   m_ObjectHideFlags: 0
