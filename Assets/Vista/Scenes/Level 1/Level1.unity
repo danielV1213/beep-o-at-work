@@ -23933,8 +23933,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Felicidades, el orden de complejidad de tu algoritmo es O(1) y has
-    evitado que el generador explote!\n"
+  m_text: "\xA1Felicidades, el orden de complejidad de tu algoritmo es O(n2)  :)!.
+    \xA1Has seleccionado el c\xF3digo m\xE1s eficiente, bienvenido a MacroSoft!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4fa9d2d697a2b4440832c3a63abcec4e, type: 2}
   m_sharedMaterial: {fileID: 1438707020126260767, guid: 4fa9d2d697a2b4440832c3a63abcec4e,
@@ -24848,7 +24848,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'No salvaste el generador a tiempo, el orden de complejidad de tu algoritmo
-    es O(n^2).
+    es O(n logn).
 
 
     Selecciona reintentar para hacerlo de nuevo'
