@@ -12579,7 +12579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 809ce3a09761fb0448aa09d2af3a18d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cbbbf6d2457e7141811f4a89d86b1b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20573,7 +20573,11 @@ PrefabInstance:
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}
       propertyPath: m_text
-      value: "while (i < n){\n\tsuma = suma + i * i;\n\ti++;\n}"
+      value: 'for(int j = 1; j < n; j*=2;){
+
+        suma++;
+
+        }'
       objectReference: {fileID: 0}
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}
@@ -22589,7 +22593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78da2e0742418584cae55504d9c441d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect: {fileID: 1232750638}
 --- !u!114 &1061783066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27132,7 +27135,7 @@ PrefabInstance:
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}
       propertyPath: m_text
-      value: "for(int j = 0; j < 5; j++;){\n  i = j;\t\t"
+      value: "for(int i = 0; i < n; i++;){\n suma = suma * 2\t\t"
       objectReference: {fileID: 0}
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}
@@ -30947,7 +30950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f02829efa2325b4ba13ac359015242a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e1df5d241a93494094868780a0d193f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43325,7 +43328,7 @@ PrefabInstance:
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}
       propertyPath: m_text
-      value: "for(int j = 0; j < 5; j++;){\n  i = j;\t\t"
+      value: "for(int j = 0; j < n; j++;){\n suma = suma + 2;\t\t"
       objectReference: {fileID: 0}
     - target: {fileID: 192669212981340598, guid: 6a6e986e3fb99ee4ba82ea29b0a0fb4c,
         type: 3}

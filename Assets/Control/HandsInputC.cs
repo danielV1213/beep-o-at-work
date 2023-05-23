@@ -35,6 +35,12 @@ public class HandsInputC : MonoBehaviour
             inputView.UpdateHoloMap(inputModel.HoloMapState);
         }
 
+        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Button2))
+        {
+            inputModel.HoloMap2State = !inputModel.HoloMap2State;
+            inputView.UpdateHoloMap2(inputModel.HoloMap2State);
+        }
+
         //if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button1))
         //{
         //    inputModel.LaserLeftState = !inputModel.LaserLeftState;

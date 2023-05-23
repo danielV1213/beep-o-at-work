@@ -7,6 +7,7 @@ public class HandsInputV : MonoBehaviour
 {
 
     public GameObject holoMap;
+    public GameObject holoMap2;
     public GameObject laserLeft;
     public GameObject laserRight;
     //public GameObject controlsMenu;
@@ -30,6 +31,10 @@ public class HandsInputV : MonoBehaviour
     public void UpdateHoloMap(bool state)
     {
         holoMap.SetActive(state);
+    }
+    public void UpdateHoloMap2(bool state)
+    {
+        holoMap2.SetActive(state);
     }
 
     public void UpdateLaserLeft(bool state)
